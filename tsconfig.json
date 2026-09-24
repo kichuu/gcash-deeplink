@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"],
+
+    // Node 22 strips types at runtime rather than compiling, so relative
+    // imports must carry the real `.ts` extension (a `.js` specifier resolves
+    // to nothing on disk). Emit is off for the same reason: this repo is run,
+    // not built. See README "Why there is no build step".
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+
+    // Type stripping can only erase, never transform. Enums, namespaces and
+    // constructor parameter properties would need real codegen, so the
+    // compiler rejects them here before Node does at runtime.
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"]
+}
