@@ -2,7 +2,15 @@
   "name": "gcash-deeplink",
   "version": "0.1.0",
   "description": "Build GCash deeplinks from EMV QR Ph (QRPH) payloads. Unofficial and unsupported.",
-  "keywords": ["gcash", "qrph", "qr-ph", "emvco", "deeplink", "philippines", "instapay"],
+  "keywords": [
+    "gcash",
+    "qrph",
+    "qr-ph",
+    "emvco",
+    "deeplink",
+    "philippines",
+    "instapay"
+  ],
   "license": "MIT",
   "type": "module",
   "engines": {
@@ -12,11 +20,11 @@
     "gcash-deeplink": "./src/cli.ts"
   },
   "scripts": {
-    "cli": "node src/cli.ts",
-    "decode": "node src/cli.ts decode",
-    "build-link": "node src/cli.ts build",
-    "page": "node src/cli.ts page",
-    "serve": "node src/cli.ts serve",
+    "cli": "node --env-file-if-exists=.env src/cli.ts",
+    "decode": "node --env-file-if-exists=.env src/cli.ts decode",
+    "build-link": "node --env-file-if-exists=.env src/cli.ts build",
+    "page": "node --env-file-if-exists=.env src/cli.ts page",
+    "serve": "node --env-file-if-exists=.env src/cli.ts serve",
     "test": "node --test test/*.test.ts",
     "typecheck": "tsc -p tsconfig.json"
   },

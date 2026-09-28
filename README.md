@@ -54,9 +54,17 @@ Two identifiers travel with every link and are **not committed to this repo**:
 
 ```bash
 cp .env.example .env    # then fill both in
+```
+
+The `npm run` scripts load `.env` automatically via Node's
+`--env-file-if-exists`, so `npm run build-link -- "<qr>"` just works. Invoking
+`node src/cli.ts` directly does not — pass the flag yourself, or export the
+variables:
+
+```bash
+node --env-file-if-exists=.env src/cli.ts build "<qr>"
 # or
-export GCASH_CLIENT_ID=...
-export GCASH_MERCHANT_ID=...
+export GCASH_CLIENT_ID=... GCASH_MERCHANT_ID=...
 ```
 
 Building a link without them throws `MissingConfigError` naming the missing
